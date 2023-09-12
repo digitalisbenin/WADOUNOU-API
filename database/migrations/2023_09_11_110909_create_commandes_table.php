@@ -11,21 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('role_id');
+            $table->uuid('repas_id');
+            $table->uuid('client_id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->uuid('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('description');
+            $table->string('prix');
+            $table->DateTime('date');
+            $table->string('addrese');
             $table->timestamps();
 
-            $table->foreign('role_id')
+            $table->foreign('repas_id')
             ->references('id')
-            ->on('roles')
+            ->on('repas')
+            ->onDelete('cascade');
+
+            $table->foreign('client_id')
+            ->references('id')
+            ->on('clients')
             ->onDelete('cascade');
         });
     }
@@ -35,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('commandes');
     }
 };
