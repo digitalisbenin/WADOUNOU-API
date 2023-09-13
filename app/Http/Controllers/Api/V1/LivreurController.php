@@ -53,7 +53,6 @@ class LivreurController extends ApiController
     public function destroy(Livreur $livreur)
     {
         $livreur->delete();
-
         return response(null, 204);
     }
 }
