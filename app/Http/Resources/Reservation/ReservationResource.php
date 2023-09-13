@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Reservation;
 
+use App\Http\Resources\Restaurant\RestaurantCollection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,11 +23,12 @@ class ReservationResource extends JsonResource
     {
        // return parent::toArray($request);
        return [
+        'id' => $this->id,
         'name'=>$this->name,
         'description'=>$this->description,
         'place'=>$this->place,
         'date'=>$this->date,
-        'restaurant_id'=>$this->restaurant_id,
+        'restaurant'=> new RestaurantCollection($this->restaurant),
     ];
     }
 }

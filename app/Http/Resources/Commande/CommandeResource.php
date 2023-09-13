@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Commande;
 
+use App\Http\Resources\Client\ClientResource;
+use App\Http\Resources\Repas\RepasCollection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,10 +24,10 @@ class CommandeResource extends JsonResource
     {
       //  return parent::toArray($request);
       return [
-
+        'id' => $this->id,
         'name'=>$this->name,
-        'repas_id'=>$this->repas_id,
-        'client_id'=>$this->client_id,
+        'repas'=>new RepasCollection($this->repas),
+        'client'=> new ClientResource($this->client),
         'description'=>$this->description,
         'prix'=>$this->prix,
         'date'=>$this->date,

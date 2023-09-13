@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Livraison;
 
+use App\Http\Resources\Livreur\LivreurResource;
+use App\Http\Resources\Commande\CommandeCollection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,13 +24,14 @@ class LivraisonResource extends JsonResource
     {
        // return parent::toArray($request);
        return [
+        'id' => $this->id,
         'name'=>$this->name,
         'addrese'=>$this->addrese,
         'phone'=>$this->phone,
         'description'=>$this->description,
         'status'=>$this->status,
-        'commande_id'=>$this->commande_id,
-        'livreur_id'=>$this->livreur_id,
+        'commande'=>new CommandeCollection($this->commande),
+        'livreur'=>new LivreurResource($this->commande),
 
     ];
     }

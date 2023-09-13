@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Repas;
 
+use App\Http\Resources\Categorie\CategorieResource;
+use App\Http\Resources\Restaurant\RestaurantCollection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,13 +24,14 @@ class RepasResource extends JsonResource
     {
        // return parent::toArray($request);
        return [
+        'id' => $this->id,
         'name'=>$this->name,
         'description'=>$this->description,
         'prix'=>$this->prix,
         'jours'=>$this->jours,
         'image_url'=>$this->image_url,
-        'restaurant_id'=>$this->restaurant_id,
-        'categirie_id'=>$this->categirie_id,
+        'restaurant'=> new RestaurantCollection($this->restaurant),
+        'categirie'=> new CategorieResource($this->categirie),
     ];
     }
 }

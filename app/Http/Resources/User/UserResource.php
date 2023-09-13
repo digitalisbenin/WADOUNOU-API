@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\User;
 
+use App\Http\Resources\Role\RoleResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,13 +23,11 @@ class UserResource extends JsonResource
     {
        // return parent::toArray($request);
        return [
+        'id' => $this->id,
         'name'=>$this->name,
-        'role_id'=>$this->role_id,
+        'role'=> new RoleResource($this->role),
         'email'=>$this->email,
         'email_verified_at'=>$this->email_verified_at,
-        'password'=>$this->password,
-        'remember_token'=>$this->remember_token,
-        'current_team_id'=>$this->current_team_id,
         'profile_photo_path'=>$this->profile_photo_path,
         'created_at'=>$this->created_at,
         'updated_at'=>$this->updated_at,
