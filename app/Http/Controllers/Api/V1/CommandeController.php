@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\Commande\StoreCommandeRequest;
 use App\Http\Requests\Commande\UpdateCommandeRequest;
-use App\Http\Requests\Commande\CommandeCollection;
-use App\Http\Requests\Commande\CommandeResource;
+use App\Http\Resources\Commande\CommandeCollection;
+use App\Http\Resources\Commande\CommandeResource;
 use App\Http\Controllers\Api\V1\ApiController;
 use App\Models\Commande;
 use Illuminate\Http\Request;
 
-class CommandeController extends Controller
+class CommandeController extends ApiController
 {
     /**
      * Display a listing of the resource.

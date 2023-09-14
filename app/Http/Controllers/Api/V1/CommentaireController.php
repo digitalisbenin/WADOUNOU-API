@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\Commentaire\StoreCommentaireRequest;
 use App\Http\Requests\Commentaire\UpdateCommentaireRequest;
-use App\Http\Requests\Commentaire\CommentaireCollection;
-use App\Http\Requests\Commentaire\CommentaireResource;
+use App\Http\Resources\Commentaire\CommentaireCollection;
+use App\Http\Resources\Commentaire\CommentaireResource;
 use App\Http\Controllers\Api\V1\ApiController;
 use App\Models\Commentaire;
 use Illuminate\Http\Request;

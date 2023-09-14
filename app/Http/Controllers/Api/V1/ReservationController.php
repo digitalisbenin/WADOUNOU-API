@@ -2,26 +2,32 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\Reservation\StoreReservationRequest;
+use App\Http\Requests\Reservation\UpdateReservationRequest;
+use App\Http\Resources\Reservation\ReservationCollection;
+use App\Http\Resources\Reservation\ReservationResource;
+use App\Http\Controllers\Api\V1\ApiController;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 
-class ReservationController extends Controller
+class ReservationController extends ApiController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return new ReservationCollection(Reservation::paginate());
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreReservationRequest $request)
     {
-        //
+        $reservation = Reservation::create($request->all());
+
+        return new ReservationResource($reservation);
     }
 
     /**
@@ -29,15 +35,16 @@ class ReservationController extends Controller
      */
     public function show(Reservation $reservation)
     {
-        //
+        return new ReservationResource($reservation);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reservation $reservation)
+    public function update(UpdateReservationRequest $request, Reservation $reservation)
     {
-        //
+        $reservation->update($request->all());
+        return new ReservationResource($reservation);
     }
 
     /**
@@ -45,6 +52,7 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-        //
+        $reservation->delete();
+        return response(null, 204);
     }
 }

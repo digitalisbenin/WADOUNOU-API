@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Resources\Livraison\LivraisonCollection;
 use App\Http\Resources\Livraison\LivraisonResource;
-use App\Http\Resources\Livraison\StoreLivraisonRequest;
-use App\Http\Resources\Livraison\UpdateLivraisonRequest;
+use App\Http\Requests\Livraison\StoreLivraisonRequest;
+use App\Http\Requests\Livraison\UpdateLivraisonRequest;
 use App\Http\Controllers\Api\V1\ApiController;
 use App\Models\Livraison;
 use Illuminate\Http\Request;

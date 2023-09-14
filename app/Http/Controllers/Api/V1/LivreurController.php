@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\Livreur\StoreLivreurRequest;
 use App\Http\Requests\Livreur\UpdateLivreurRequest;
-use App\Http\Requests\Livreur\LivreurCollection;
-use App\Http\Requests\Livreur\LivreurResource;
+use App\Http\Resources\Livreur\LivreurCollection;
+use App\Http\Resources\Livreur\LivreurResource;
 use App\Http\Controllers\Api\V1\ApiController;
 use App\Models\Livreur;
 use Illuminate\Http\Request;
