@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Reservation;
 
-use App\Http\Resources\Restaurant\RestaurantCollection;
+use App\Http\Resources\Restaurant\RestaurantResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -28,7 +28,7 @@ class ReservationResource extends JsonResource
         'description'=>$this->description,
         'place'=>$this->place,
         'date'=>$this->date,
-        'restaurant'=> new RestaurantCollection($this->restaurant),
+        'restaurant'=> new RestaurantResource($this->restaurant),
     ];
     }
 }

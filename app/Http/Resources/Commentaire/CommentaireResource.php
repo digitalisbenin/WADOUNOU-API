@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Commentaire;
 
-use App\Http\Resources\Repas\RepasCollection;
+use App\Http\Resources\Repas\RepasResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -18,7 +18,7 @@ class CommentaireResource extends JsonResource
         return [
             'id' => $this->id,
             'content'=>$this->content,
-            'repas'=>new RepasCollection($this->repas),
+            'repas'=>new RepasResource($this->repas),
     
         ];
     }

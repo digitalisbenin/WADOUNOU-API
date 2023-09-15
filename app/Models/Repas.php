@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use App\Traits\Uuid;
+use App\Models\Restaurant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Repas extends Model
 {
@@ -12,7 +15,7 @@ class Repas extends Model
 
     protected $fillable = ['name', 'description' ,'prix','jours','image_url','restaurant_id','categirie_id'];
 
-        public function restaurant()
+            public function restaurant()
             {
                 return $this->belongsTo(Restaurant::class);
             }
@@ -23,18 +26,18 @@ class Repas extends Model
         }
 
 
-    public function commande()
-    {
-        return $this->hasMany(Commande::class);
-    }
+        public function commande()
+        {
+            return $this->hasMany(Commande::class);
+        }
 
-    public function think()
-    {
-        return $this->hasMany(Thinks::class);
-    }
+        public function think()
+        {
+            return $this->hasMany(Thinks::class);
+        }
 
-    public function commentaire()
-    {
-        return $this->hasMany(Commentaire::class);
-    }
+        public function commentaire()
+        {
+            return $this->hasMany(Commentaire::class);
+        }
 }

@@ -17,7 +17,7 @@ class CommandeController extends ApiController
      */
     public function index()
     {
-        return new CommandeCollection(Commande::paginate());
+        return new CommandeCollection(Commande::all());
     }
 
     /**

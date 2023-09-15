@@ -3,7 +3,7 @@
 namespace App\Http\Resources\Repas;
 
 use App\Http\Resources\Categorie\CategorieResource;
-use App\Http\Resources\Restaurant\RestaurantCollection;
+use App\Http\Resources\Restaurant\RestaurantResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -30,7 +30,7 @@ class RepasResource extends JsonResource
         'prix'=>$this->prix,
         'jours'=>$this->jours,
         'image_url'=>$this->image_url,
-        'restaurant'=> new RestaurantCollection($this->restaurant),
+        'restaurant'=> new RestaurantResource($this->restaurant),
         'categirie'=> new CategorieResource($this->categirie),
     ];
     }

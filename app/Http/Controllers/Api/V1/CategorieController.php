@@ -17,7 +17,7 @@ class CategorieController extends ApiController
      */
     public function index()
     {
-        return new CategorieCollection(Categorie::paginate());
+        return new CategorieCollection(Categorie::all());
     }
 
     /**

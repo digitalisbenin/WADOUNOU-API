@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Thinks;
 
-use App\Http\Resources\Repas\RepasCollection;
+use App\Http\Resources\Repas\RepasResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -28,7 +28,7 @@ class ThinksResource extends JsonResource
         'description'=>$this->description,
         'icon_path'=>$this->icon_path,
         'type'=>$this->type,
-        'repas'=>new RepasCollection($this->repas),
+        'repas'=>new RepasResource($this->repas),
     ];
     }
 }

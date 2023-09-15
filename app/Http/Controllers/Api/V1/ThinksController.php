@@ -17,7 +17,7 @@ class ThinksController extends ApiController
      */
     public function index()
     {
-        return new ThinksCollection(Thinks::paginate());
+        return new ThinksCollection(Thinks::all());
     }
 
     /**

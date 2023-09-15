@@ -45,9 +45,9 @@ Route::middleware('json-response')->prefix('auth')->group(function () {
         ->middleware('signed');
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
 
 Route::apiResources([
     'users' => UserController::class,
@@ -55,12 +55,12 @@ Route::apiResources([
     'categories' => CategorieController::class,
     'clients' => ClientController::class,
     'commandes' => CommandeController::class,
-    'commentaire' => CommentaireController::class,
+    'commentaires' => CommentaireController::class,
     'livreurs' => LivreurController::class,
     'livraisons' => LivraisonController::class,
     'repas' => RepasController::class,
     'reservations' => ReservationController::class,
-    'restaurant' => RestaurantController::class,
+    'restaurants' => RestaurantController::class,
     'roles' => RoleController::class,
     'thinks' => ThinksController::class,
    

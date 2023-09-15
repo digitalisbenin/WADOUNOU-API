@@ -3,7 +3,7 @@
 namespace App\Http\Resources\Commande;
 
 use App\Http\Resources\Client\ClientResource;
-use App\Http\Resources\Repas\RepasCollection;
+use App\Http\Resources\Repas\RepasResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -26,7 +26,7 @@ class CommandeResource extends JsonResource
       return [
         'id' => $this->id,
         'name'=>$this->name,
-        'repas'=>new RepasCollection($this->repas),
+        'repas'=>new RepasResource($this->repas),
         'client'=> new ClientResource($this->client),
         'description'=>$this->description,
         'prix'=>$this->prix,

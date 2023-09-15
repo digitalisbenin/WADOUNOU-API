@@ -17,7 +17,7 @@ class ReservationController extends ApiController
      */
     public function index()
     {
-        return new ReservationCollection(Reservation::paginate());
+        return new ReservationCollection(Reservation::all());
     }
 
     /**

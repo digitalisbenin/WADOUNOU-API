@@ -17,7 +17,7 @@ class RepasController extends ApiController
      */
     public function index()
     {
-        return new RepasCollection(Repas::paginate());
+        return new RepasCollection(Repas::all());
     }
 
     /**

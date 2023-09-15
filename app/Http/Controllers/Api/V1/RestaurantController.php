@@ -17,7 +17,7 @@ class RestaurantController extends ApiController
      */
     public function index()
     {
-        return new RestaurantCollection(Restaurant::paginate());
+        return new RestaurantCollection(Restaurant::all());
     }
 
     /**

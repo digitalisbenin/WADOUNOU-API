@@ -17,7 +17,7 @@ class LivraisonController extends ApiController
      */
     public function index()
     {
-        return new LivraisonCollection(Livraison::paginate());
+        return new LivraisonCollection(Livraison::all());
     }
 
     /**

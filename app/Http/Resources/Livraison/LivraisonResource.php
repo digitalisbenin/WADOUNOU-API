@@ -3,7 +3,7 @@
 namespace App\Http\Resources\Livraison;
 
 use App\Http\Resources\Livreur\LivreurResource;
-use App\Http\Resources\Commande\CommandeCollection;
+use App\Http\Resources\Commande\CommandeResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -30,7 +30,7 @@ class LivraisonResource extends JsonResource
         'phone'=>$this->phone,
         'description'=>$this->description,
         'status'=>$this->status,
-        'commande'=>new CommandeCollection($this->commande),
+        'commande'=>new CommandeResource($this->commande),
         'livreur'=>new LivreurResource($this->commande),
 
     ];

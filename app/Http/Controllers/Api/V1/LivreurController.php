@@ -17,7 +17,7 @@ class LivreurController extends ApiController
      */
     public function index()
     {
-        return new LivreurCollection(Livreur::paginate());
+        return new LivreurCollection(Livreur::all());
     }
 
     /**

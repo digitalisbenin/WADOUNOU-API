@@ -17,7 +17,7 @@ class CommentaireController extends ApiController
      */
     public function index()
     {
-        return new CommentaireCollection(Commentaire::paginate());
+        return new CommentaireCollection(Commentaire::all());
     }
 
     /**

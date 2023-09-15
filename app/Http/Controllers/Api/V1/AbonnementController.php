@@ -17,7 +17,7 @@ class AbonnementController extends ApiController
      */
     public function index()
     {
-        return new AbonnementCollection(Abonnement::paginate());
+        return new AbonnementCollection(Abonnement::all());
     }
 
     /**
