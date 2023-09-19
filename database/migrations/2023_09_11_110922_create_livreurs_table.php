@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('livreurs', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('restaurant_id');
+            $table->uuid('user_id');
             $table->string('name');
             $table->string('description');
             $table->string('addrese');
@@ -24,6 +25,11 @@ return new class extends Migration
             ->references('id')
             ->on('restaurants')
             ->onDelete('cascade');
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

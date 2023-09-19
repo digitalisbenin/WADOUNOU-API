@@ -7,12 +7,20 @@ use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , Uuid ;
+    use HasApiTokens;
+    use HasFactory;
+    use Uuid;
+    use HasProfilePhoto;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -29,6 +37,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -38,20 +48,32 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
 
-     /**
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-        public function role()
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
+
+            public function restaurant()
         {
-            return $this->belongsTo('App\Models\Role');
+            return $this->hasMany(Restaurant::class);
         }
 
-        public function restaurant()
-    {
-        return $this->hasMany(Restaurant::class);
-    }
+        public function livreur()
+        {
+            return $this->hasMany(Livreur::class);
+        }
 }

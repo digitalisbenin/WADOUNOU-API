@@ -12,7 +12,7 @@ class Livreur extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'addrese' ,'phone','description','restaurant_id'];
+    protected $fillable = ['name', 'addrese' ,'phone','description','restaurant_id', 'user_id'];
 
     public function restaurant()
         {
@@ -22,5 +22,10 @@ class Livreur extends Model
     public function livraison()
         {
             return $this->hasMany(Livraison::class);
+        }
+
+        public function user()
+        {
+            return $this->belongsTo(User::class);
         }
 }

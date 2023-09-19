@@ -2,21 +2,32 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-        if (User::count() == 0) {
-            User::factory()
-                ->count(1)
-                ->create();
+        if (!count(User::all())) {
+            $roleSupAdm = Role::where('name', 'Super Admin')->first();
+            User::create(
+                [
+                    'name' => 'Supper Admin',
+                    'email' => 'superadmin@eresto.com',
+                    'password' => bcrypt('password'),
+                    'role_id' => $roleSupAdm->id,
+                ],
+                
+            );
         }
     }
 }

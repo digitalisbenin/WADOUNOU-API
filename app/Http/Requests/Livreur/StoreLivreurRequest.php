@@ -28,6 +28,7 @@ class StoreLivreurRequest extends FormRequest
             'addrese' => 'required',
             'phone' => 'required',
             'restaurant_id' => 'required',
+            'user_id' => 'required',
             
         ];
     }

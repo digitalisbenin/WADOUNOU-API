@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Livreur;
 
+use App\Http\Resources\User\UserResource;
 use App\Http\Resources\Restaurant\RestaurantResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -28,6 +29,7 @@ class LivreurResource extends JsonResource
         'addrese'=>$this->addrese,
         'phone'=>$this->phone,
         'description'=>$this->description,
+        'user'=> new UserResource($this->user),
         'restaurant'=>new RestaurantResource($this->restaurant),
     ];
     }

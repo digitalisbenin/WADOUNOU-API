@@ -1,5 +1,5 @@
 <?php
-
+ 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Auth\VerificationController;
@@ -45,23 +45,75 @@ Route::middleware('json-response')->prefix('auth')->group(function () {
         ->middleware('signed');
 });
 
-/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
+Route::get('/abonnements' ,[AbonnementController::class, 'index']);
+Route::get('/abonnements/{id}', [AbonnementController::class, 'show']);
+Route::post('/abonnements', [AbonnementController::class, 'store']);
+Route::put('/abonnements/{id}', [AbonnementController::class, 'update']);
+Route::delete('/abonnements/{id}',[AbonnementController::class, 'delete']);
+Route::get('/categories', [CategorieController::class, 'index']);
+Route::get('/categories/{id}', [CategorieController::class, 'show']);
+Route::post('/categories', [CategorieController::class, 'store']);
+Route::put('/categories/{id}', [CategorieController::class, 'update']);
+Route::delete('/categories/{id}', [CategorieController::class, 'delete']);
+Route::get('/clients', [ClientController::class, 'index']);
+Route::get('clients/{id}', [ClientController::class, 'show']);
+Route::post('/clients', [ClientController::class, 'store']);
+Route::put('/clients/{id}', [ClientController::class, 'update']);
+Route::delete('/clients/{id}', [ClientController::class, 'delete']);
+Route::get('/commandes', [CommandeController::class, 'index']);
+Route::get('/commandes/{id}', [CommandeController::class, 'show']);
+Route::post('/commandes', [CommandeController::class, 'store']);
+Route::put('/commandes/{id}', [CommandeController::class, 'update']);
+Route::delete('/commandes/{id}', [CommandeController::class, 'delete']);
+Route::get('/commentaires', [CommentaireController::class, 'index']);
+Route::get('/commentaires/{id}', [CommentaireController::class, 'show']);
+Route::post('/commentaires', [CommentaireController::class, 'store']);
+Route::put('/commentaires/{id}', [CommentaireController::class, 'update']);
+Route::delete('/commentaires/{id}', [CommentaireController::class, 'delete']);
+Route::get('/roles', [RoleController::class, 'index']);
+Route::get('/roles/{id}', [RoleController::class, 'show']);
+Route::post('/roles', [RoleController::class, 'store']);
+Route::put('/roles/{id}', [RoleController::class, 'update']);
+Route::delete('/roles/{id}', [RoleController::class, 'delete']);
+Route::get('/thinks', [ThinksController::class, 'index']);
+Route::get('/thinks/{id}', [ThinksController::class, 'show']);
+Route::post('/thinks', [ThinksController::class, 'store']);
+Route::put('/thinks/{id}', [ThinksController::class, 'update']);
+Route::delete('/thinks/{id}', [ThinksController::class, 'delete']);
+Route::get('/reservations', [ReservationController::class, 'index']);
+Route::get('/reservations/{id}', [ReservationController::class, 'show']);
+Route::post('/reservations', [ReservationController::class, 'store']);
+Route::put('/reservations/{id}', [ReservationController::class, 'update']);
+Route::delete('/reservations/{id}', [ReservationController::class, 'delete']);
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::post('/users', [UserController::class, 'store']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'delete']);
+Route::get('/livraisons', [LivraisonController::class, 'index']);
+Route::get('/livraisons/{id}', [LivraisonController::class, 'show']);
+Route::post('/livraisons', [LivraisonController::class, 'store']);
+Route::put('/livraisons/{id}', [LivraisonController::class, 'update']);
+Route::delete('/livraisons/{id}', [LivraisonController::class, 'delete']);
+Route::get('/repas', [RepasController::class, 'index']);
+Route::get('/repas/{id}', [RepasController::class, 'show']);
+Route::post('/repas', [RepasController::class, 'store']);
+Route::put('/repas/{id}', [RepasController::class, 'update']);
+Route::delete('/repas/{id}', [RepasController::class, 'delete']);
+Route::get('/livreurs', [LivreurController::class, 'index']);
+Route::get('/livreurs/{id}', [LivreurController::class, 'show']);
+Route::get('/restaurants', [RestaurantController::class, 'index']);
+Route::get('/restaurants/{id}', [RestaurantController::class, 'show']);
 
-Route::apiResources([
-    'users' => UserController::class,
-    'abonnements' => AbonnementController::class,
-    'categories' => CategorieController::class,
-    'clients' => ClientController::class,
-    'commandes' => CommandeController::class,
-    'commentaires' => CommentaireController::class,
-    'livreurs' => LivreurController::class,
-    'livraisons' => LivraisonController::class,
-    'repas' => RepasController::class,
-    'reservations' => ReservationController::class,
-    'restaurants' => RestaurantController::class,
-    'roles' => RoleController::class,
-    'thinks' => ThinksController::class,
-   
-]);
+
+Route::middleware(['auth:sanctum', 'json-response'])->group(function () {
+    Route::get("logout", [AuthController::class, 'logout']);
+
+    Route::post('/livreurs', [LivreurController::class, 'store']);
+    Route::put('/livreurs/{id}', [LivreurController::class, 'update']);
+    Route::delete('/livreurs/{id}', [LivreurController::class, 'delete']);
+    Route::post('/restaurants', [RestaurantController::class, 'store']);
+    Route::put('/restaurants/{id}', [RestaurantController::class, 'update']);
+    Route::delete('/restaurants/{id}', [RestaurantController::class, 'delete']);
+
+});
