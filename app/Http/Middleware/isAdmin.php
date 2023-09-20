@@ -17,8 +17,9 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        $roleAdm = Role::where('name', 'Admin')->first();
-        if (auth()->user()->role_id == $roleAdm->id ) {
+        
+        $roleSupAdm = Role::where('name', 'Super Admin')->first();
+        if ( auth()->user()->role_id == $roleSupAdm->id) {
             return $next($request);
         } else {
             session()->flush();

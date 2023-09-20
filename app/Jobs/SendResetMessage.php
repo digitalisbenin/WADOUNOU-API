@@ -4,15 +4,18 @@ namespace App\Jobs;
 
 use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Password;
 
 class SendResetMessage implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The number of times the job may be attempted.
@@ -38,8 +41,12 @@ class SendResetMessage implements ShouldQueue
      * @var User
      */
     protected $user;
+
     /**
      * Create a new job instance.
+     *
+     * @param App\Models\User $user
+     * @return void
      */
     public function __construct(User $user)
     {
@@ -48,8 +55,10 @@ class SendResetMessage implements ShouldQueue
 
     /**
      * Execute the job.
+     *
+     * @return void
      */
-    public function handle(): void
+    public function handle()
     {
         $access_token = Password::broker('users')->createToken($this->user);
 

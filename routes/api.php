@@ -37,7 +37,7 @@ Route::middleware('json-response')->prefix('auth')->group(function () {
     // route to send reset link to email for password forgotten
     Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail']);
     // route to send reset password for password forgotten
-    Route::post('/password/reset', [ForgotPasswordController::class, 'reset'])->name('password.reset');
+    Route::post('/password/reset', [ForgotPasswordController::class, 'reset'])->name('passwords.reset');
     // route to resend the email verification when the link has expired
     Route::post('resend/', [VerificationController::class, 'resend'])->name('verification.resend');
     // route to verify email after clicking on the link on email

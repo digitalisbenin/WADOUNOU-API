@@ -12,7 +12,8 @@ class CommandeCollection extends ResourceCollection
      *
      * @return array<int|string, mixed>
      */
-    public function toArray(Request $request): array
+    public function toArray($request)
+
     {
         return parent::toArray($request);
     }

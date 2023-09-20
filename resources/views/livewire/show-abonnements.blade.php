@@ -1,3 +1,4 @@
+
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white p-4">
     <div class="flex items-center justify-between pb-4">
 
@@ -51,9 +52,9 @@
                         {{ $abonnement->description }}
                     </td>
                     <td class="flex items-center px-6 py-4 space-x-3">
-                        <a href="#" wire:click="edit({{ $abonnement->id }})" wire:loading.attr="disabled"
+                        <a href="#" wire:click="edit({{ $abonnement }})" wire:loading.attr="disabled"
                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
-                        <a href="#" wire:click="delete({{ $abonnement->id }})" wire:loading.attr="disabled"
+                        <a href="#" wire:click="delete({{ $abonnement }})" wire:loading.attr="disabled"
                             class="font-medium text-red-600 dark:text-red-500 hover:underline">Supprimer</a>
                     </td>
                 </tr>
@@ -97,13 +98,13 @@
         <x-slot name="content">
             <div class="mt-4">
                 <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Nom') }}" x-ref="editing.name"
-                    wire:model.defer="editing.name" disabled />
+                    wire:model.defer="editing.name"  />
 
                 <x-input-error for="editing.name" class="mt-2" />
             </div>
             <div class="mt-4">
                 <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('DESCRIPTION') }}"
-                    x-ref="editing.description" wire:model.defer="editing.description" disabled />
+                    x-ref="editing.description" wire:model.defer="editing.description"  />
 
                 <x-input-error for="editing.description" class="mt-2" />
             </div>
