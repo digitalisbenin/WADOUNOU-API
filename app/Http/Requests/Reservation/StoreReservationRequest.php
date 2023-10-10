@@ -26,6 +26,7 @@ class StoreReservationRequest extends FormRequest
         return [
             'name' => 'required',
             'date' => 'required',
+            'contact' => 'required',
             'place' => 'required',
             'restaurant_id' => 'required',
             

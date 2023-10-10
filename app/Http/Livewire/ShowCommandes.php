@@ -20,12 +20,12 @@ class ShowCommandes extends Component
     {
         return [
             'editing.name' => 'required|min:2',
-            'editing.description' => 'required',
-            'editing.prix' => 'required',
-            'editing.date' => 'required',
+            'editing.description' => 'nullable',
+            'editing.contact' => 'required',
             'editing.addrese' => 'required',
             'editing.repas_id' => 'required',
-            'editing.client_id' => 'required',
+            'editing.user_id' => 'nullable',
+            
             
         ];
     }

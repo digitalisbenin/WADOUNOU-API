@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\Repas;
 
-use App\Http\Resources\Categorie\CategorieResource;
 use App\Http\Resources\Restaurant\RestaurantResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -29,10 +28,10 @@ class RepasResource extends JsonResource
         'name'=>$this->name,
         'description'=>$this->description,
         'prix'=>$this->prix,
-        'jours'=>$this->jours,
+        'type'=>$this->type,
         'image_url'=>$this->image_url,
         'restaurant'=> new RestaurantResource($this->restaurant),
-        'categirie'=> new CategorieResource($this->categirie),
+        
     ];
     }
 }

@@ -24,11 +24,7 @@ class UpdateRepasRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'prix' => 'required',
-            'jours' => 'required',
-            'description' => 'required',
-            'image_url' => 'required',
+            //
         ];
     }
 

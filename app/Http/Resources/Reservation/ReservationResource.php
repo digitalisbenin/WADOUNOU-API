@@ -28,6 +28,7 @@ class ReservationResource extends JsonResource
         'name'=>$this->name,
         'description'=>$this->description,
         'place'=>$this->place,
+        'contact'=>$this->contact,
         'date'=>$this->date,
         'restaurant'=> new RestaurantResource($this->restaurant),
     ];

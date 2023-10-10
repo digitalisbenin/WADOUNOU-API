@@ -26,11 +26,10 @@ class StoreRepasRequest extends FormRequest
         return [
             'name' => 'required',
             'prix' => 'required',
-            'jours' => 'required',
-            'description' => 'required',
+            'type' => 'required',
             'image_url' => 'required',
             'restaurant_id' => 'required',
-            'categirie_id' => 'required',
+            
         ];
     }
 

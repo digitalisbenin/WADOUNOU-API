@@ -33,19 +33,16 @@
                     Nom
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    ADDRESE
+                    Decription
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    PRIX
+                    Addrese
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    NOM CLIENT
+                    Contact
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    NOM REPAS
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    PHONE CLIENT
+                    Nom repas
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
@@ -60,21 +57,20 @@
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ $commande->name }}
                     </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $commande->description }}
+                    </th>
                     <td class="px-6 py-4">
                         {{ $commande->addrese }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $commande->prix }}
+                        {{ $commande->contact }}
                     </td>
-                    <td class="px-6 py-4">
-                        {{ $commande->client->name }}
-                    </td>
+                   
                     <td class="px-6 py-4">
                         {{ $commande->repas->name }}
                     </td>
-                    <td class="px-6 py-4">
-                        {{ $commande->client->phone }}
-                    </td>
+                    
                     <td class="flex items-center px-6 py-4 space-x-3">
                         <a href="#" wire:click="edit({{ $commande }})" wire:loading.attr="disabled"
                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
@@ -127,22 +123,22 @@
                 <x-input-error for="editing.name" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('DESCRIPTION') }}" x-ref="editing.description"
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Description') }}" x-ref="editing.description"
                     wire:model.defer="editing.description" disabled />
 
                 <x-input-error for="editing.description" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('ADDRESE') }}"
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Addrese') }}"
                     x-ref="editing.addrese" wire:model.defer="editing.addrese" disabled />
 
                 <x-input-error for="editing.addrese" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('PRIX') }}"
-                    x-ref="editing.prix" wire:model.defer="editing.prix" disabled  />
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Contact') }}"
+                    x-ref="editing.contact" wire:model.defer="editing.contact" disabled  />
 
-                <x-input-error for="editing.prix" class="mt-2" />
+                <x-input-error for="editing.contact" class="mt-2" />
             </div>
         </x-slot>
 

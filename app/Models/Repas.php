@@ -13,17 +13,16 @@ class Repas extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'description' ,'prix','jours','image_url','restaurant_id','categirie_id'];
+    protected $fillable = ['name', 'description' ,'prix','type','image_url','restaurant_id'];
+
+    
+
 
             public function restaurant()
             {
                 return $this->belongsTo(Restaurant::class);
             }
 
-        public function categorie()
-        {
-            return $this->belongsTo(Categorie::class);
-        }
 
 
         public function commande()

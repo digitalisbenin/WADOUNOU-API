@@ -11,7 +11,7 @@ class Reservation extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'description' ,'place','date','restaurant_id'];
+    protected $fillable = ['name', 'contact', 'description' ,'place','date','restaurant_id'];
 
     public function restaurant()
     {

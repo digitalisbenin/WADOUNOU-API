@@ -33,10 +33,13 @@
                     Nom
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    ADDRESE
+                    Description
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    PHONE
+                    Adresse
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Phone
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
@@ -51,6 +54,9 @@
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ $livreur->name }}
                     </th>
+                    <td class="px-6 py-4">
+                        {{ $livreur->description }}
+                    </td>
                     <td class="px-6 py-4">
                         {{ $livreur->addrese }}
                     </td>
@@ -109,13 +115,13 @@
                 <x-input-error for="editing.name" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('ADDRESE') }}"
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Addrese') }}"
                     x-ref="editing.addrese" wire:model.defer="editing.addrese"  />
 
                 <x-input-error for="editing.addrese" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('PHONE') }}"
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Phone') }}"
                     x-ref="editing.phone" wire:model.defer="editing.phone"  />
 
                 <x-input-error for="editing.phone" class="mt-2" />
@@ -123,7 +129,7 @@
             <div class="mt-4">
 
                 <label for="editing.restaurant_id"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RESTAURANT</label>
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Restaurants</label>
                 <select id="editing.restaurant_id" wire:model.defer="editing.restaurant_id"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Selectionnez le Restaurant</option>
@@ -138,7 +144,7 @@
             <div class="mt-4">
 
                 <label for="editing.user_id"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">USER</label>
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Users</label>
                 <select id="editing.user_id" wire:model.defer="editing.user_id"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Selectionnez le User</option>

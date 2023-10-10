@@ -23,17 +23,15 @@
                     Nom
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    DESCRIPTION
+                    Decription
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    ADDRESE
+                    Addrese
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    PHONE
+                    Phone
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    NOM ABONNEMENT
-                </th>
+
                 <th scope="col" class="px-6 py-3">
                     Action
                 </th>
@@ -55,10 +53,8 @@
                 <td class="px-6 py-4">
                     {{ $restaurant->phone }}
                 </td>
-                <td class="px-6 py-4">
-                    {{ $restaurant->abonnement->name }}
-                </td>
-                
+
+
                 <td class="flex items-center px-6 py-4 space-x-3">
                     <a href="#" wire:click="edit({{ $restaurant }})" wire:loading.attr="disabled" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
                     <a href="#" wire:click="delete({{ $restaurant }})" wire:loading.attr="disabled" class="font-medium text-red-600 dark:text-red-500 hover:underline">Supprimer</a>
@@ -121,17 +117,17 @@
                 <x-input-error for="editing.phone" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Image_url') }}" x-ref="editing.image_url" wire:model.defer="editing.image_url" />
+                <label for="editing.image_url" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image_url</label>
+               
+                <input wire:model="file" type="file" id="file" name="file" class="mt-1 block w-full border border-gray-600" >
 
                 <x-input-error for="editing.image_url" class="mt-2" />
             </div>
-            
+
             <div class="mt-4">
 
-                <label for="editing.user_id"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">USER</label>
-                <select id="editing.user_id" wire:model.defer="editing.user_id"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label for="editing.user_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User</label>
+                <select id="editing.user_id" wire:model.defer="editing.user_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Selectionnez le User</option>
                     @foreach($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>

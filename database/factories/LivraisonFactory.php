@@ -20,7 +20,7 @@ class LivraisonFactory extends Factory
     {
         $commande = Commande::all();
         $livreur = Livreur::all();
-        $statues = ['En cours','suspended','Arriver'];
+        $statues = ['En cours','suspended','Terminer'];
         return [
             'name' => $this->faker->word,
             'description' => $this->faker->word,

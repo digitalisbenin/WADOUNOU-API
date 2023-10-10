@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('restaurant_id');
             $table->string('name');
+            $table->string('contact');
             $table->string('description')->nullable();
             $table->string('place');
             $table->DateTime('date');

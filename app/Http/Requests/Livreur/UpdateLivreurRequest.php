@@ -24,8 +24,7 @@ class UpdateLivreurRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'addrese' => 'required',
-            'phone' => 'required',
+            //
         ];
     }
 

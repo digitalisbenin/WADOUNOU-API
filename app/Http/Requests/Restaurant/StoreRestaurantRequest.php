@@ -30,6 +30,7 @@ class StoreRestaurantRequest extends FormRequest
             'description' => 'required',
             'image_url' => 'required',
             'user_id' => 'required',
+            'abonnement_id' => 'nullable',
             
         ];
     }

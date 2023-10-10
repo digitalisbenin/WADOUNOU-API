@@ -23,16 +23,16 @@
                     Nom
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    DESCRIPTION
+                    Description
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    PRIX
+                    Prix
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    JOURS
+                    Type
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    NOM RESTAURANT
+                    Nom restaurant
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
@@ -53,12 +53,12 @@
                     {{ $repase->prix }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $repase->jours }}
+                    {{ $repase->type }}
                 </td>
                 <td class="px-6 py-4">
                     {{ $repase->restaurant->name }}
                 </td>
-                
+
                 <td class="flex items-center px-6 py-4 space-x-3">
                     <a href="#" wire:click="edit({{ $repase }})" wire:loading.attr="disabled" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
                     <a href="#" wire:click="delete({{ $repase }})" wire:loading.attr="disabled" class="font-medium text-red-600 dark:text-red-500 hover:underline">Supprimer</a>
@@ -116,16 +116,17 @@
                 <x-input-error for="editing.prix" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Jour') }}" x-ref="editing.jours" wire:model.defer="editing.jours" />
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Type') }}" x-ref="editing.type" wire:model.defer="editing.type" />
 
-                <x-input-error for="editing.jours" class="mt-2" />
+                <x-input-error for="editing.type" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Image_url') }}" x-ref="editing.image_url" wire:model.defer="editing.image_url" />
+                <label for="editing.image_url" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image_url</label>
+               
+                <input wire:model="file" type="file" id="file" name="file" class="mt-1 block w-full border border-gray-600" >
 
                 <x-input-error for="editing.image_url" class="mt-2" />
             </div>
-            
             <div class="mt-4">
 
                 <label for="editing.restaurant_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Restaurant</label>
@@ -139,30 +140,21 @@
 
                 <x-input-error for="editing.restaurant_id" class="mt-2" />
             </div>
-            <div class="mt-4">
-
-                <label for="editing.categirie_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categorie</label>
-                <select id="editing.role_id" wire:model.defer="editing.categirie_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Selectionnez la categorie</option>
-                    @foreach ($categories as $categorie)
-                    <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
-                    @endforeach
-                </select>
 
 
-                <x-input-error for="editing.categirie_id" class="mt-2" />
-            </div>
 
-        </x-slot>
 
-        <x-slot name="footer">
-            <x-secondary-button wire:click="$set('showEditModal', false)" wire:loading.attr="disabled">
-                {{ __('Annuler') }}
-            </x-secondary-button>
 
-            <x-danger-button class="ml-3" wire:click="save" wire:loading.attr="disabled">
-                {{ __('Enregistrer') }}
-            </x-danger-button>
-        </x-slot>
-    </x-dialog-modal>
+</x-slot>
+
+<x-slot name="footer">
+    <x-secondary-button wire:click="$set('showEditModal', false)" wire:loading.attr="disabled">
+        {{ __('Annuler') }}
+    </x-secondary-button>
+
+    <x-danger-button class="ml-3" wire:click="save" wire:loading.attr="disabled">
+        {{ __('Enregistrer') }}
+    </x-danger-button>
+</x-slot>
+</x-dialog-modal>
 </div>

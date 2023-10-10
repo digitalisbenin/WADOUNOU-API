@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('repas', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('restaurant_id');
-            $table->uuid('categirie_id');
             $table->string('name');
             $table->string('description');
             $table->string('prix');
-            $table->string('jours');
+            $table->string('type');
             $table->string('image_url');
             $table->timestamps();
 
@@ -27,10 +26,7 @@ return new class extends Migration
             ->on('restaurants')
             ->onDelete('cascade');
 
-            $table->foreign('categirie_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
+            
         });
     }
 

@@ -33,7 +33,7 @@
                     Nom
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    DESCRIPTION
+                    Description
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
@@ -103,7 +103,7 @@
                 <x-input-error for="editing.name" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('DESCRIPTION') }}"
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Description') }}"
                     x-ref="editing.description" wire:model.defer="editing.description"  />
 
                 <x-input-error for="editing.description" class="mt-2" />

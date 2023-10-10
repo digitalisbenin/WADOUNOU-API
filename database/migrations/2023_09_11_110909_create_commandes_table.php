@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('repas_id');
-            $table->uuid('client_id');
+            $table->uuid('user_id')->nullable();
             $table->string('name');
-            $table->string('description');
-            $table->string('prix');
-            $table->DateTime('date');
+            $table->string('description')->nullable();
+            $table->string('contact');
             $table->string('addrese');
             $table->timestamps();
 
@@ -27,10 +26,12 @@ return new class extends Migration
             ->on('repas')
             ->onDelete('cascade');
 
-            $table->foreign('client_id')
+            $table->foreign('user_id')
             ->references('id')
-            ->on('clients')
+            ->on('users')
             ->onDelete('cascade');
+
+           
         });
     }
 

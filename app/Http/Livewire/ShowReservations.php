@@ -23,6 +23,7 @@ class ShowReservations extends Component
             'editing.description' => 'required',
             'editing.place' => 'required',
             'editing.date' => 'required',
+            'editing.contact' => 'required',
             'editing.restaurant_id' => 'required',
             
             

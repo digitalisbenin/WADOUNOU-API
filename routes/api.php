@@ -1,13 +1,11 @@
 <?php
- 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Auth\VerificationController;
 use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\AbonnementController;
-use App\Http\Controllers\Api\V1\CategorieController;
-use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\CommandeController;
 use App\Http\Controllers\Api\V1\CommentaireController;
 use App\Http\Controllers\Api\V1\LivraisonController;
@@ -29,6 +27,7 @@ use App\Http\Controllers\Api\V1\ThinksController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
 Route::middleware('json-response')->prefix('auth')->group(function () {
     // route to register new user for the platform
     Route::post("/register", [AuthController::class, 'register'])->name('api.register');
@@ -45,21 +44,11 @@ Route::middleware('json-response')->prefix('auth')->group(function () {
         ->middleware('signed');
 });
 
-Route::get('/abonnements' ,[AbonnementController::class, 'index']);
+Route::get('/abonnements', [AbonnementController::class, 'index']);
 Route::get('/abonnements/{id}', [AbonnementController::class, 'show']);
 Route::post('/abonnements', [AbonnementController::class, 'store']);
 Route::put('/abonnements/{id}', [AbonnementController::class, 'update']);
-Route::delete('/abonnements/{id}',[AbonnementController::class, 'delete']);
-Route::get('/categories', [CategorieController::class, 'index']);
-Route::get('/categories/{id}', [CategorieController::class, 'show']);
-Route::post('/categories', [CategorieController::class, 'store']);
-Route::put('/categories/{id}', [CategorieController::class, 'update']);
-Route::delete('/categories/{id}', [CategorieController::class, 'delete']);
-Route::get('/clients', [ClientController::class, 'index']);
-Route::get('clients/{id}', [ClientController::class, 'show']);
-Route::post('/clients', [ClientController::class, 'store']);
-Route::put('/clients/{id}', [ClientController::class, 'update']);
-Route::delete('/clients/{id}', [ClientController::class, 'delete']);
+Route::delete('/abonnements/{id}', [AbonnementController::class, 'delete']);
 Route::get('/commandes', [CommandeController::class, 'index']);
 Route::get('/commandes/{id}', [CommandeController::class, 'show']);
 Route::post('/commandes', [CommandeController::class, 'store']);
@@ -97,9 +86,6 @@ Route::put('/livraisons/{id}', [LivraisonController::class, 'update']);
 Route::delete('/livraisons/{id}', [LivraisonController::class, 'delete']);
 Route::get('/repas', [RepasController::class, 'index']);
 Route::get('/repas/{id}', [RepasController::class, 'show']);
-Route::post('/repas', [RepasController::class, 'store']);
-Route::put('/repas/{id}', [RepasController::class, 'update']);
-Route::delete('/repas/{id}', [RepasController::class, 'delete']);
 Route::get('/livreurs', [LivreurController::class, 'index']);
 Route::get('/livreurs/{id}', [LivreurController::class, 'show']);
 Route::get('/restaurants', [RestaurantController::class, 'index']);
@@ -115,5 +101,7 @@ Route::middleware(['auth:sanctum', 'json-response'])->group(function () {
     Route::post('/restaurants', [RestaurantController::class, 'store']);
     Route::put('/restaurants/{id}', [RestaurantController::class, 'update']);
     Route::delete('/restaurants/{id}', [RestaurantController::class, 'delete']);
-
+    Route::post('/repas', [RepasController::class, 'store']);
+    Route::put('/repas/{id}', [RepasController::class, 'update']);
+    Route::delete('/repas/{id}', [RepasController::class, 'delete']);
 });

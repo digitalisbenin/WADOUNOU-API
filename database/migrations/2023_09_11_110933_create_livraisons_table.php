@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('addrese');
             $table->string('phone');
-            $table->enum('status', ['En cours', 'suspended', 'Arriver'])->default('En cours');
+            $table->enum('status', ['En cours', 'suspended', 'Terminer'])->default('En cours');
             $table->timestamps();
 
             $table->foreign('commande_id')

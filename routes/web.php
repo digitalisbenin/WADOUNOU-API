@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Livewire\ShowAbonnements;
-use App\Http\Livewire\ShowCategories;
-use App\Http\Livewire\ShowClients;
 use App\Http\Livewire\ShowCommandes;
 use App\Http\Livewire\ShowCommentaires;
 use App\Http\Livewire\ShowLivraisons;
@@ -39,8 +37,6 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/show-abonnements', ShowAbonnements::class)->name('show-abonnements');
-    Route::get('/show-categories', ShowCategories::class)->name('show-categories');
-    Route::get('/show-clients', ShowClients::class)->name('show-clients');
     Route::get('/show-commandes', ShowCommandes::class)->name('show-commandes');
     Route::get('/show-commentaires', ShowCommentaires::class)->name('show-commentaires');
     Route::get('/show-livreurs', ShowLivreurs::class)->name('show-livreurs');

@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Restaurant;
-use App\Models\Categorie;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,15 +17,14 @@ class RepasFactory extends Factory
      */
     public function definition(): array
     {
-        $categorie = Categorie::all();
+        
         $restaurant = Restaurant::all();
         return [
             'name' => $this->faker->word,
             'description' => $this->faker->word,
             'prix' => $this->faker->word,
-            'jours' => $this->faker->word,
+            'type' => $this->faker->word,
             'image_url' => $this->faker->word,
-            'categirie_id' => $categorie->random()->id,
             'restaurant_id' => $restaurant->random()->id,
         ];
     }

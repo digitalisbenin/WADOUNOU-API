@@ -2,20 +2,54 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Categorie;
+
 use App\Models\Repas;
 use App\Models\Restaurant;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
+
 
 class ShowRepas extends Component
 {
+    use WithFileUploads;
     public Repas $deleting;
     public Repas $editing;
     public $showDeleteModal = false;
     public $showEditModal = false;
     public $action = '';
     public $search;
+    public $file;
 
+
+    public function getFileType(UploadedFile $file): string
+{
+    if ($file && $file->isValid()) {
+        $mime = $file->getMimeType();
+
+        return $this->mimeToType($mime); // Utilisez $this->mimeToType() pour appeler la méthode de la classe
+    }
+
+    return '';
+}
+
+    function mimeToType(string $mime = null): string
+    {
+        if ($mime) {
+            if (strstr($mime, 'image/')) {
+                return 'image';
+            } elseif (strstr($mime, 'video/')) {
+                return 'video';
+            } elseif (strstr($mime, 'audio/')) {
+                return 'audio';
+            } elseif ($mime == 'application/pdf') {
+                return 'pdf';
+            }
+        }
+
+        return 'file';
+    }
 
     public function rules()
     {
@@ -23,12 +57,11 @@ class ShowRepas extends Component
             'editing.name' => 'required|min:2',
             'editing.description' => 'required',
             'editing.prix' => 'required',
-            'editing.image_url' => 'required',
-            'editing.jours' => 'required',
+            'editing.type' => 'required',
             'editing.restaurant_id' => 'required',
-            'editing.categirie_id' => 'required',
-            
-            
+
+
+
         ];
     }
 
@@ -63,18 +96,52 @@ class ShowRepas extends Component
 
     public function save()
     {
-        $this->validate();
-        $this->editing->save();
+        $this->validate([
+            'file' => 'required|mimetypes:image/jpeg,image/png,image/jpg,video/webm,video/mp4,video/3gpp,audio/mpeg,audio/mp3,audio/wav|max:2048',
+        ]);
+
+
+        $file = $this->file;
+        $name = time() . $file->getClientOriginalName();
+        $fileType = $this->getFileType($file);
+        $path = '';
+        switch ($fileType) {
+            case 'image':
+                $path = 'images';
+                break;
+            case 'audio':
+                $path = 'audios';
+                break;
+            case 'video':
+                $path = 'videos';
+                break;
+            case 'pdf':
+                $path = 'pdfs';
+                break;
+            default:
+                $path = 'images';
+                break;
+        }
+        $url = $this->file->storePubliclyAs($path, $name, 's3');
+        $url = "https://bucetwadounou.s3.us-east-1.amazonaws.com/$url";
+        Repas::create([
+            'name' => $this->editing->name,
+            'description' => $this->editing->description,
+            'prix' => $this->editing->prix,
+            'type' => $this->editing->type,
+            'restaurant_id' => $this->editing->restaurant_id,
+            'image_url' => $url,
+        ]);
         $this->notify('Enregistrement effectué avec succès');
         $this->showEditModal = false;
     }
-    
+
     public function render()
     {
-        return view('livewire.show-repas',[
-            'repas'=> Repas::all(), 
-            'restaurants'=> Restaurant::all(), 
-            'categories'=> Categorie::all(), 
+        return view('livewire.show-repas', [
+            'repas' => Repas::all(),
+            'restaurants' => Restaurant::all(),
+
         ]);
     }
 }

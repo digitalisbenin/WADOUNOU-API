@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 
 use App\Models\Repas;
-use App\Models\Client;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,14 +20,13 @@ class CommandeFactory extends Factory
     public function definition(): array
     {
         $repas = Repas::all();
-        $client = Client::all();
+        $user = User::all();
         return [
             'name' => $this->faker->word,
             'description' => $this->faker->word,
-            'prix' => $this->faker->word,
+            'contact' => $this->faker->word,
             'addrese' => $this->faker->word,
-            'date' => $this->faker->date(),
-            'client_id' => $client->random()->id,
+            'user_id' => $user->random()->id,
             'repas_id' => $repas->random()->id,
         ];
     }

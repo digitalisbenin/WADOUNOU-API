@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Commande;
 use App\Models\Livraison;
+use App\Models\Livreur;
 use Livewire\Component;
 
 class ShowLivraisons extends Component
@@ -70,6 +72,9 @@ class ShowLivraisons extends Component
     {
         return view('livewire.show-livraisons',[
             'livraisons'=> Livraison::all(),
+            'livreurs'=> Livreur::all(),
+            'commandes'=> Commande::all(),
+
         ]);
     }
 }

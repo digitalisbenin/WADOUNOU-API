@@ -23,7 +23,7 @@ class ShowLivreurs extends Component
             'editing.addrese' => 'required',
             'editing.phone' => 'required',
             'editing.description' => 'required',
-            'editing.restaurant_id' => 'required',
+            'editing.restaurant_id' => 'nullable',
             'editing.user_id' => 'required',
             
         ];

@@ -12,16 +12,16 @@ class Commande extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'repas_id' ,'client_id','description','prix','date','addrese'];
+    protected $fillable = ['name', 'repas_id' ,'user_id','description','contact','addrese'];
 
     public function repas()
         {
             return $this->belongsTo(Repas::class);
         }
 
-        public function client()
+        public function user()
         {
-            return $this->belongsTo(Client::class);
+            return $this->belongsTo(User::class);
         }
 
         public function livraison()

@@ -32,16 +32,19 @@
                     Nom
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    DESCRIPTION
+                    Decription
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    PLACE
+                    Contact
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    DATE
+                    Place
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    NOM RESTAURANT
+                    Date
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nom restaurant
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
@@ -58,6 +61,9 @@
                     </th>
                     <td class="px-6 py-4">
                         {{ $reservation->description }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $reservation->contact }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $reservation->place }}
@@ -124,6 +130,12 @@
                     x-ref="editing.description" wire:model.defer="editing.description"  />
 
                 <x-input-error for="editing.description" class="mt-2" />
+            </div>
+            <div class="mt-4">
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Contact') }}"
+                    x-ref="editing.contact" wire:model.defer="editing.contact"  />
+
+                <x-input-error for="editing.contact" class="mt-2" />
             </div>
             <div class="mt-4">
                 <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Place') }}"

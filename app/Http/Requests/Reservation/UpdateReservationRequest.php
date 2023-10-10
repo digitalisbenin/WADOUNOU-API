@@ -24,9 +24,7 @@ class UpdateReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'date' => 'required',
-            'place' => 'required',
+            //
         ];
     }
 

@@ -22,6 +22,7 @@ class ReservationFactory extends Factory
             'name' => $this->faker->word,
             'description' => $this->faker->word,
             'place' => $this->faker->word,
+            'contact'=> $this->faker->word,
             'date' => $this->faker->date(),
             'restaurant_id' => $restaurant->random()->id,
         ];

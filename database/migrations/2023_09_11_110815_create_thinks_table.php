@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('type', ['feel', 'think'])->default('think');
             $table->timestamps();
 
+            
             $table->foreign('repas_id')
             ->references('id')
             ->on('repas')

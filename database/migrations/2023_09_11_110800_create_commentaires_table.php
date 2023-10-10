@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('content',255);
             $table->timestamps();
 
+            
             $table->foreign('repas_id')
             ->references('id')
             ->on('repas')

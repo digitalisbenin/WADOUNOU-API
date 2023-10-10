@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('livreurs', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('restaurant_id');
+            $table->uuid('restaurant_id')->nullable();
             $table->uuid('user_id');
             $table->string('name');
             $table->string('description');
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->timestamps();
 
+            
             $table->foreign('restaurant_id')
             ->references('id')
             ->on('restaurants')

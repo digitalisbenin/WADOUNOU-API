@@ -22,8 +22,6 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             AbonnementSeeder::class,
-            CategorieSeeder::class,
-            ClientSeeder::class,
             RestaurantSeeder::class,
             RepasSeeder::class,
             LivreurSeeder::class,
