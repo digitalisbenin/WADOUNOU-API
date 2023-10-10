@@ -119,7 +119,6 @@ class RestaurantController extends ApiController
 
        
     }
-
     /**
      * Display the specified resource.
      */
