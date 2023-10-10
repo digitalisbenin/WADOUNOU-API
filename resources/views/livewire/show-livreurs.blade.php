@@ -115,6 +115,11 @@
                 <x-input-error for="editing.name" class="mt-2" />
             </div>
             <div class="mt-4">
+                <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Description') }}" x-ref="editing.description" wire:model.defer="editing.description" />
+
+                <x-input-error for="editing.description" class="mt-2" />
+            </div>
+            <div class="mt-4">
                 <x-input type="text" class="mt-1 block w-full" placeholder="{{ __('Addrese') }}"
                     x-ref="editing.addrese" wire:model.defer="editing.addrese"  />
 
