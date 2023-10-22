@@ -49,6 +49,27 @@ class AuthController extends ApiController
         return $this->respondWithToken($tokenResult);
     }
 
+
+    
+    /**
+     * Get the token array structure.
+     *
+     * @param $tokenResult
+     * @param null $user
+     * @return JsonResponse
+     */
+    protected function respondWithToken($tokenResult, $user = null)
+    {
+        $user = $user ?? auth()->user();
+
+        return $this->respond([
+            'access_token' => $tokenResult->plainTextToken,
+            'token_type' => 'Bearer',
+            // 'expires_at' => $tokenResult->token->expires_at,
+            // 'user' => new UserResource($user),
+        ]);
+    }
+
     /**
      * Register
      *
@@ -81,17 +102,10 @@ class AuthController extends ApiController
         if (!empty($user)) {
             $user->save();
 
-            // Send a verification email to the user
-            // SendVerificationMessage::dispatch($user)->onQueue('emails');
+            $tokenResult = $user->createToken(Str::random(15));
 
             // Return the API Token
-            return response()->json([
-                'success' => true,
-                'message' => trans('messages.successfully_operated', [], 'fr'),
-                'data' => [
-                    trans('messages.user_created_successfully', [], 'fr')
-                ]
-            ], 201);
+            return $this->respondWithToken($tokenResult, $user);
         }
         return $this->respondError(trans('messages.user_not_created', [], 'fr'), 500);
     }
