@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Http\Requests\Commande;
+namespace App\Http\Requests\Media;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreCommandeRequest extends FormRequest
+class StoreMediaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -19,23 +21,18 @@ class StoreCommandeRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name' => 'required',
-            'addrese' => 'required',
-            'contact' => 'required',
-            'description' => 'nullable',
-            'status' => 'required|in:En cours, suspended, Terminer',
-            'repas_id' => 'required',
-            'user_id' => 'nullable',
+            
+            'media_url' => 'required',
+            
             
         ];
     }
-
-    public function failedValidation(Validator $validator)
+     public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
             'success' => false,

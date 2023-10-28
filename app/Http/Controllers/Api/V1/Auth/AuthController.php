@@ -39,7 +39,10 @@ class AuthController extends ApiController
      */
     public function login(LoginRequest $request)
     {
-        $validatedData = $request->all();
+        $validatedData = $request->validate([
+            'email' => 'email|required',
+            'password' => 'required'
+        ]);
         if (!auth()->attempt($validatedData)) {
             return $this->respondFailedLogin();
         }

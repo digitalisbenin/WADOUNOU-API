@@ -12,7 +12,7 @@ class Commande extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'repas_id' ,'user_id','description','contact','addrese'];
+    protected $fillable = ['name', 'repas_id' ,'user_id', 'status','description','contact','addrese'];
 
     public function repas()
         {

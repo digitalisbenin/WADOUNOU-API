@@ -31,6 +31,7 @@ class CommandeResource extends JsonResource
         'repas'=>new RepasResource($this->repas),
         'user'=>new UserResource($this->user),
         'description'=>$this->description,
+        'status'=>$this->status,
         'contact'=>$this->contact,
         'addrese'=>$this->addrese,
 

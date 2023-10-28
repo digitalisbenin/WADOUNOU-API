@@ -21,11 +21,13 @@ class CommandeFactory extends Factory
     {
         $repas = Repas::all();
         $user = User::all();
+        $statues = ['En cours','suspended','Terminer'];
         return [
             'name' => $this->faker->word,
             'description' => $this->faker->word,
             'contact' => $this->faker->word,
             'addrese' => $this->faker->word,
+            'status' => $this->faker->unique()->randomElement($statues),
             'user_id' => $user->random()->id,
             'repas_id' => $repas->random()->id,
         ];

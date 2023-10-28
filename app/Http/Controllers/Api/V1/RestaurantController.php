@@ -79,43 +79,9 @@ class RestaurantController extends ApiController
      */
     public function store(StoreRestaurantRequest $request)
     {
-        if ($request->hasFile('file') && $request->file('file')->isValid()) {
-            $file = $request->file('file');
-            $name = time() . $file->getClientOriginalName();
-            $fileType = $this->getFileType($file);
-            $filePath = $this->setFilePath($fileType, $name);
+        $restaurant = Restaurant::create($request->all());
 
-            $cloudDisk = Storage::disk('s3');
-            try {
-                $cloudDisk->put($filePath, file_get_contents($file));
-                $url = $cloudDisk->url($filePath);
-            } catch (S3Exception $e) {
-                return response()->json([
-                    'success'   => false,
-                    'message'   => 'S3 error',
-                    'data'      => $e->getMessage(),
-                ]);
-            }
-
-            $abonnement = Abonnement::create($request->all());
-             $user = User::create($request->all());
-            $restaurant = Restaurant::create([
-                'name' => $request->name,
-                'description' => $request->description,
-                'addrese' => $request->addrese,
-                'phone' => $request->phone,
-                'image_url' => $url,
-                'abonnement_id' => $abonnement->id,
-                'user_id' => $user->id,
-            ]);
-
-            return new RestaurantResource($restaurant);
-        }
-        
-        return response()->json([
-            'success' => false,
-            'message' => 'Invalid file',
-        ]);
+        return new RestaurantResource($restaurant);
 
        
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('contact');
             $table->string('addrese');
+            $table->enum('status', ['En cours', 'suspended', 'Terminer'])->default('En cours');
             $table->timestamps();
 
             $table->foreign('repas_id')

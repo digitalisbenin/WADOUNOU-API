@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'locsal'),
+    'default' => env('FILESYSTEM_DISK', 'local'),
 
     
 

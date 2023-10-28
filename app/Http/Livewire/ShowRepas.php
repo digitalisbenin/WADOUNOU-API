@@ -102,8 +102,10 @@ class ShowRepas extends Component
 
 
         $file = $this->file;
+        
         $name = time() . $file->getClientOriginalName();
         $fileType = $this->getFileType($file);
+        //dd($fileType);
         $path = '';
         switch ($fileType) {
             case 'image':
@@ -123,6 +125,7 @@ class ShowRepas extends Component
                 break;
         }
         $url = $this->file->storePubliclyAs($path, $name, 's3');
+      
         $url = "https://bucetwadounou.s3.us-east-1.amazonaws.com/$url";
         Repas::create([
             'name' => $this->editing->name,
