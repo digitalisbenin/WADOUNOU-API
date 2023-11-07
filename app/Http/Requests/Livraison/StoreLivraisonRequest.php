@@ -25,8 +25,9 @@ class StoreLivraisonRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'addrese' => 'required',
+            'adresse' => 'required',
             'phone' => 'required',
+            'description' => 'required',
             'status' => 'required|in:En cours, suspended, Terminer',
             'commande_id' => 'required',
             'livreur_id' => 'required',

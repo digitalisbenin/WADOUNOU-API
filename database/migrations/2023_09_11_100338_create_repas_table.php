@@ -11,23 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('livreurs', function (Blueprint $table) {
+        Schema::create('repas', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('user_id');
+            $table->uuid('categoris_id');
             $table->string('name');
             $table->string('description');
-            $table->string('adresse');
-            $table->string('phone');
-            $table->string('position');
-            $table->string('image_url');
-            $table->string('document_url');
-            $table->enum('status', ['disponible', 'occuper', 'en cours livrason'])->default('disponible');
+            $table->string('prix');
+            $table->string('image_url')->nullable();
             $table->timestamps();
-
 
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
+                ->onDelete('cascade');
+
+                $table->foreign('categoris_id')
+                ->references('id')
+                ->on('categories')
                 ->onDelete('cascade');
         });
     }
@@ -37,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('livreurs');
+        Schema::dropIfExists('repas');
     }
 };

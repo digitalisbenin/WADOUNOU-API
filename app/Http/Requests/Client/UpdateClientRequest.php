@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Http\Requests\Livreur;
+namespace App\Http\Requests\Client;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreLivreurRequest extends FormRequest
+class UpdateClientRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -19,21 +21,12 @@ class StoreLivreurRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name' => 'required',
-            'adresse' => 'required',
-            'phone' => 'required',
-            'position' => 'required',
-            'image_url' => 'required',
-            'document_url' => 'required',
-            'status' => 'required',
-            'description' => 'required',
-            'user_id' => 'required',
-            
+            //
         ];
     }
 

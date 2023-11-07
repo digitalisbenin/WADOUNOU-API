@@ -26,7 +26,8 @@ class StoreRepasRequest extends FormRequest
         return [
             'name' => 'required',
             'prix' => 'required',
-            'type' => 'required',
+            'description' => 'required',
+            'categoris_id' => 'required',
             'image_url' => 'required',
             'restaurant_id' => 'required',
             

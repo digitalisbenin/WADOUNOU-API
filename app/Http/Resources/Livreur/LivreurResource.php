@@ -27,11 +27,14 @@ class LivreurResource extends JsonResource
        return [
         'id' => $this->id,
         'name'=>$this->name,
-        'addrese'=>$this->addrese,
+        'adresse'=>$this->adresse,
         'phone'=>$this->phone,
         'description'=>$this->description,
+        'position'=>$this->position,
+        'image_url'=>$this->image_url,
+        'document_url'=>$this->document_url,
+        'status'=>$this->status,
         'user'=> new UserResource($this->user),
-        'restaurant'=>new RestaurantResource($this->restaurant),
     ];
     }
 }

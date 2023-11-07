@@ -11,7 +11,7 @@ class Livraison extends Model
 {
     use HasFactory , Uuid ;
 
-    protected $fillable = ['name', 'addrese' ,'phone','description','status','commande_id','livreur_id'];
+    protected $fillable = ['name', 'adresse' ,'phone','description','status','commande_id','livreur_id'];
 
     public function commande()
         {

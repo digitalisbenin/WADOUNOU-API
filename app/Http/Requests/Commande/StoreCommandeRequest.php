@@ -25,13 +25,14 @@ class StoreCommandeRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'addrese' => 'required',
+            'adresse' => 'required',
             'contact' => 'required',
             'description' => 'nullable',
-            'status' => 'required|in:En cours, suspended, Terminer',
+            'status' => 'required|in:En cours, livrer, non livrer',
             'repas_id' => 'required',
             'user_id' => 'nullable',
-            
+            'montant' => 'required',
+            'quantite' => 'required',
         ];
     }
 

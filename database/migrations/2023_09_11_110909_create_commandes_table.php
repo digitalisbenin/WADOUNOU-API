@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('contact');
-            $table->string('addrese');
-            $table->enum('status', ['En cours', 'suspended', 'Terminer'])->default('En cours');
+            $table->string('adresse');
+            $table->string('montant');
+            $table->string('quantite');
+            $table->enum('status', ['En cours', 'livrer', 'non livrer'])->default('En cours');
             $table->timestamps();
 
             $table->foreign('repas_id')

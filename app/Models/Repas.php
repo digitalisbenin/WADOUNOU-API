@@ -13,17 +13,20 @@ class Repas extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'description' ,'prix','type','image_url','restaurant_id'];
+    protected $fillable = ['name', 'description' ,'prix','image_url','categoris_id','user_id'];
 
     
 
 
-            public function restaurant()
+            public function users()
             {
-                return $this->belongsTo(Restaurant::class);
+                return $this->belongsTo(User::class);
             }
 
-
+            public function categoris()
+            {
+                return $this->belongsTo(Category::class);
+            }
 
         public function commande()
         {
@@ -38,5 +41,10 @@ class Repas extends Model
         public function commentaire()
         {
             return $this->hasMany(Commentaire::class);
+        }
+
+        public function menu()
+        {
+            return $this->hasMany(Menu::class);
         }
 }

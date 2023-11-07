@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\V1\Auth\VerificationController;
 use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\AbonnementController;
+use App\Http\Controllers\Api\V1\CategoryController;
+use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\CommandeController;
 use App\Http\Controllers\Api\V1\CommentaireController;
 use App\Http\Controllers\Api\V1\LivraisonController;
@@ -16,8 +18,10 @@ use App\Http\Controllers\Api\V1\RestaurantController;
 use App\Http\Controllers\Api\V1\RoleController;
 use App\Http\Controllers\Api\V1\ThinksController;
 use App\Http\Controllers\Api\V1\MediaController;
+use App\Http\Controllers\Api\V1\MenuController;
 use App\Http\Controllers\Api\V1\PaymentMethodController;
-
+use App\Http\Resources\Client\ClientCollection;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +101,16 @@ Route::get('/payments', [PaymentMethodController::class, 'index']);
 Route::get('/payments/{id}', [PaymentMethodController::class, 'show']);
 Route::delete('/payments/{id}', [PaymentMethodController::class, 'destroy']);
 Route::post('/payments', [PaymentMethodController::class, 'store']);
+Route::get('/clients',[ClientController::class, 'index']);
+Route::get('/clients/{id}',[ClientController::class, 'show']);
+Route::post('/clients',[ClientController::class, 'store']);
+Route::put('/clients/{id}',[ClientController::class, 'update']);
+Route::delete('/clients/{id}',[ClientController::class, 'destroy']);
+Route::get('/menus',[MenuController::class, 'index']);
+Route::get('/menus/{id}',[MenuController::class, 'show']);
+Route::get('/categorys',[CategoryController::class, 'index']);
+Route::get('/categorys/{id}', [CategoryController::class, 'show']);
+
 
 
 
@@ -112,6 +126,12 @@ Route::middleware(['auth:sanctum', 'json-response'])->group(function () {
     Route::post('/repas', [RepasController::class, 'store']);
     Route::put('/repas/{id}', [RepasController::class, 'update']);
     Route::delete('/repas/{id}', [RepasController::class, 'destroy']);
+    Route::post('/menus/{id}', [MenuController::class, 'store']);
+    Route::put('/menus/{id}', [MenuController::class, 'update']);
+    Route::delete('/menus/{id}', [MenuController::class, 'destroy']);
+    Route::post('/categorys',[CategoryController::class, 'store']);
+    Route::put('/categorys/{id}',[CategoryController::class, 'update']);
+    Route::delete('/categorys/{id}', [CategoryController::class,'destroy']);
     Route::get('/profile', function(Request $request) {
         return auth()->user();
     });

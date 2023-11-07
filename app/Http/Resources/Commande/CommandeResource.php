@@ -33,7 +33,9 @@ class CommandeResource extends JsonResource
         'description'=>$this->description,
         'status'=>$this->status,
         'contact'=>$this->contact,
-        'addrese'=>$this->addrese,
+        'adresse'=>$this->adresse,
+        'montant'=>$this->montant,
+        'quantite'=>$this->quantite,
 
 
     ];

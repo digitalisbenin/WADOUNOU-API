@@ -16,9 +16,14 @@ return new class extends Migration
             $table->uuid('user_id');
             $table->uuid('abonnement_id')->nullable();
             $table->string('name');
-            $table->string('addrese');
+            $table->string('adresse');
             $table->string('phone');
             $table->string('description');
+            $table->string('specilite');
+            $table->DateTime('heure_douverture');
+            $table->DateTime('heure_fermeture');
+            $table->string('document_url');
+            $table->string('capacite');
             $table->string('image_url');
             $table->timestamps();
 

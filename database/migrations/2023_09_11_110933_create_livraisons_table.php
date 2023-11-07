@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('livreur_id');
             $table->string('name');
             $table->string('description');
-            $table->string('addrese');
+            $table->string('adresse');
             $table->string('phone');
             $table->enum('status', ['En cours', 'suspended', 'Terminer'])->default('En cours');
             $table->timestamps();

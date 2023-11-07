@@ -12,7 +12,7 @@ class Restaurant extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'description' ,'addrese','phone','image_url','user_id','abonnement_id'];
+    protected $fillable = ['name', 'description' ,'adresse','phone','image_url','user_id','abonnement_id','specilite','heure_douverture','heure_fermeture','document_url','capacite'];
 
     public function user()
     {
@@ -25,18 +25,14 @@ class Restaurant extends Model
     }
 
 
-        public function livreur()
-        {
-            return $this->hasMany(Livreur::class);
-        }
-
-        public function repas()
-        {
-            return $this->hasMany(Repas::class);
-        }    
 
         public function reservation()
         {
             return $this->hasMany(Reservation::class);
         }  
+
+        public function menu()
+        {
+            return $this->hasMany(Menu::class);
+        }
 }

@@ -27,7 +27,7 @@ class LivraisonResource extends JsonResource
        return [
         'id' => $this->id,
         'name'=>$this->name,
-        'addrese'=>$this->addrese,
+        'adresse'=>$this->adresse,
         'phone'=>$this->phone,
         'description'=>$this->description,
         'status'=>$this->status,
