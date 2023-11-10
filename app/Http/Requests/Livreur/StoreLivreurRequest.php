@@ -29,7 +29,7 @@ class StoreLivreurRequest extends FormRequest
             'phone' => 'required',
             'position' => 'required',
             'image_url' => 'required',
-            'document_url' => 'required',
+            'document_url' => 'nullable',
             'status' => 'required',
             'description' => 'required',
             'user_id' => 'required',

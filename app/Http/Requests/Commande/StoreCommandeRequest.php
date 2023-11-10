@@ -31,6 +31,7 @@ class StoreCommandeRequest extends FormRequest
             'status' => 'required|in:En cours, livrer, non livrer',
             'repas_id' => 'required',
             'user_id' => 'nullable',
+            'restaurant_id' => 'nullable',
             'montant' => 'required',
             'quantite' => 'required',
         ];

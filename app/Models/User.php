@@ -86,6 +86,9 @@ class User extends Authenticatable
         {
             return $this->hasMany(Commande::class);
         }
-
+        public function repas()
+        {
+            return $this->hasMany(Repas::class);
+        }
 
 }

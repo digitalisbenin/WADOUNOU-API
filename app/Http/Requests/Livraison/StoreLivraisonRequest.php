@@ -24,10 +24,6 @@ class StoreLivraisonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'adresse' => 'required',
-            'phone' => 'required',
-            'description' => 'required',
             'status' => 'required|in:En cours, suspended, Terminer',
             'commande_id' => 'required',
             'livreur_id' => 'required',

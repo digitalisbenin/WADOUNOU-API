@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('categoris_id');
             $table->string('name');
             $table->string('description');
-            $table->string('prix');
+           $table->decimal('prix');
             $table->string('image_url')->nullable();
             $table->timestamps();
 

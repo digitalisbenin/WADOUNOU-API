@@ -32,7 +32,7 @@ class StoreRestaurantRequest extends FormRequest
             'specilite' => 'required',
             'heure_douverture' => 'required',
             'heure_fermeture' => 'required',
-            'document_url' => 'required',
+            'document_url' => 'nullable',
             'capacite' => 'required',
             'user_id' => 'required',
             'abonnement_id' => 'nullable',

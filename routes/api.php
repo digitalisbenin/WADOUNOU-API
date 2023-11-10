@@ -126,7 +126,7 @@ Route::middleware(['auth:sanctum', 'json-response'])->group(function () {
     Route::post('/repas', [RepasController::class, 'store']);
     Route::put('/repas/{id}', [RepasController::class, 'update']);
     Route::delete('/repas/{id}', [RepasController::class, 'destroy']);
-    Route::post('/menus/{id}', [MenuController::class, 'store']);
+    Route::post('/menus', [MenuController::class, 'store']);
     Route::put('/menus/{id}', [MenuController::class, 'update']);
     Route::delete('/menus/{id}', [MenuController::class, 'destroy']);
     Route::post('/categorys',[CategoryController::class, 'store']);

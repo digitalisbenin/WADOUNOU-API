@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('phone');
             $table->string('description');
             $table->string('specilite');
-            $table->DateTime('heure_douverture');
-            $table->DateTime('heure_fermeture');
-            $table->string('document_url');
+            $table->time('heure_douverture');
+            $table->time('heure_fermeture');
+            $table->string('document_url')->nullable();
             $table->string('capacite');
             $table->string('image_url');
             $table->timestamps();

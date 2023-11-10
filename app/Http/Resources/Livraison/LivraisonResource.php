@@ -26,10 +26,6 @@ class LivraisonResource extends JsonResource
        // return parent::toArray($request);
        return [
         'id' => $this->id,
-        'name'=>$this->name,
-        'adresse'=>$this->adresse,
-        'phone'=>$this->phone,
-        'description'=>$this->description,
         'status'=>$this->status,
         'commande'=>new CommandeResource($this->commande),
         'livreur'=>new LivreurResource($this->commande),

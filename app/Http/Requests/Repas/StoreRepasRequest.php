@@ -29,7 +29,8 @@ class StoreRepasRequest extends FormRequest
             'description' => 'required',
             'categoris_id' => 'required',
             'image_url' => 'required',
-            'restaurant_id' => 'required',
+            'user_id' => 'required',
+           
             
         ];
     }

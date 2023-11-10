@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('position');
             $table->string('image_url');
-            $table->string('document_url');
+            $table->string('document_url')->nullable();
             $table->enum('status', ['disponible', 'occuper', 'en cours livrason'])->default('disponible');
             $table->timestamps();
 

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->uuid('restaurant_id');
             $table->string('name');
             $table->string('description')->nullable();
-            $table->string('prix')->nullable();
+            $table->decimal('prix')->nullable();
             $table->timestamps();
 
             $table->foreign('repas_id')

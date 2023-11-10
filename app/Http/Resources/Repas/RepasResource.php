@@ -24,16 +24,14 @@ class RepasResource extends JsonResource
     public function toArray($request)
 
     {
-       // return parent::toArray($request);
        return [
         'id' => $this->id,
         'name'=>$this->name,
         'description'=>$this->description,
         'prix'=>$this->prix,
-        'type'=>$this->type,
         'image_url'=>$this->image_url,
         'categoris'=>new CategoryResource($this->categoris),
-        'user'=>new UserResource($this->user),
+        'user'=> new UserResource($this->user),
         
     ];
     }
