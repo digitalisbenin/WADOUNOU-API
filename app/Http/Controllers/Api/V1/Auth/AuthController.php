@@ -93,13 +93,13 @@ class AuthController extends ApiController
     public function register(RegisterRequest $request)
     {
 
-        $roleAuthor = Role::where('name', 'Restaurant')->first();
+        //$roleAuthor = Role::where('name', 'Restaurant')->first();
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'role_id' => $roleAuthor->id,
+            'role_id' => $request->role_id,
         ]);
 
         if (!empty($user)) {

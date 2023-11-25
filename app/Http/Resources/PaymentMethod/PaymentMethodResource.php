@@ -2,7 +2,8 @@
 
 namespace App\Http\Resources\PaymentMethod;
 
-use App\Http\Resources\User\UserResource;
+use App\Http\Resources\Commande\CommandeResource;
+//use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,11 +22,11 @@ class PaymentMethodResource extends JsonResource
             'id' => $this->id,
             'card_brand' => $this->card_brand,
             'last4' => $this->last4,
-            'type' => $this->type,
+            'transationId' => $this->type,
             'exp_month' => $this->exp_month,
             'exp_year' => $this->exp_year,
             'phone_number' => $this->phone_number,
-            'user'=> new UserResource($this->user),
+            'commande'=> new CommandeResource($this->commande),
             
         ];
     }

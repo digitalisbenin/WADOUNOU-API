@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
-            $table->string('type');
+            $table->uuid('commande_id');
+            $table->string('transationId');
             $table->string('card_brand')->nullable();
             $table->string('last4')->nullable();
             $table->string('exp_month')->nullable();
@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')
+            $table->foreign('commande_id')
                 ->references('id')
-                ->on('users')
+                ->on('commandes')
                 ->onDelete('cascade');
         });
     }

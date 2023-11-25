@@ -26,13 +26,13 @@ class StorePaymentMethodRequest extends FormRequest
     public function rules()
     {
         return [
-            'card_brand' => 'required',
-            'type' => 'required',
-            'last4' => 'required',
-            'user_id' => 'required',
-            'exp_month' => 'required',
-            'exp_year' => 'required',
-            'phone_number' => 'required',
+            'card_brand' => 'nullable',
+            'transationId' => 'required',
+            'last4' => 'nullable',
+            'commande_id' => 'required',
+            'exp_month' => 'nullable',
+            'exp_year' => 'nullable',
+            'phone_number' => 'nullable',
             
         ];
     }

@@ -29,6 +29,7 @@ class RepasResource extends JsonResource
         'name'=>$this->name,
         'description'=>$this->description,
         'prix'=>$this->prix,
+        'like'=>$this->like,
         'image_url'=>$this->image_url,
         'categoris'=>new CategoryResource($this->categoris),
         'user'=> new UserResource($this->user),

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('contact');
             $table->string('adresse');
-            $table->string('montant');
-            $table->string('quantite');
-            $table->enum('status', ['En cours', 'livrer', 'non livrer'])->default('En cours');
+            $table->decimal('montant');
+            $table->decimal('quantite');
+            $table->enum('status', ['En attente', 'livrer', 'non livrer','Affecter']);
             $table->timestamps();
 
             $table->foreign('repas_id')

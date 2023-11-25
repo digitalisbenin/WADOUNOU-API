@@ -13,7 +13,7 @@ class Repas extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'description' ,'prix','image_url','categoris_id','user_id'];
+    protected $fillable = ['name', 'description' ,'prix','like','image_url','categoris_id','user_id'];
 
     
 

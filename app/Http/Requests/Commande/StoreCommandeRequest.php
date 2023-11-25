@@ -28,7 +28,7 @@ class StoreCommandeRequest extends FormRequest
             'adresse' => 'required',
             'contact' => 'required',
             'description' => 'nullable',
-            'status' => 'required|in:En cours, livrer, non livrer',
+            'status' => 'required|in:En attente,livrer,non livrer,Affecter',
             'repas_id' => 'required',
             'user_id' => 'nullable',
             'restaurant_id' => 'nullable',

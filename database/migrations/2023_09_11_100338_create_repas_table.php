@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
            $table->decimal('prix');
+           $table->decimal('like')->nullable();
             $table->string('image_url')->nullable();
             $table->timestamps();
 
