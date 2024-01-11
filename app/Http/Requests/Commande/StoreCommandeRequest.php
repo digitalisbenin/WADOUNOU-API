@@ -24,16 +24,15 @@ class StoreCommandeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'adresse' => 'required',
-            'contact' => 'required',
+            'name' => 'nullable',
+            'adresse' => 'nullable',
+            'contact' => 'nullable',
             'description' => 'nullable',
             'status' => 'required|in:En attente,livrer,non livrer,Affecter',
-            'repas_id' => 'required',
             'user_id' => 'nullable',
             'restaurant_id' => 'nullable',
-            'montant' => 'required',
-            'quantite' => 'required',
+            'montant' => 'nullable',
+
         ];
     }
 

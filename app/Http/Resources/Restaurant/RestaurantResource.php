@@ -28,6 +28,7 @@ class RestaurantResource extends JsonResource
             'name'=>$this->name,
             'description'=>$this->description,
             'adresse'=>$this->adresse,
+            'ville'=>$this->ville,
             'phone'=>$this->phone,
             'image_url'=>$this->image_url,
             'specilite'=>$this->specilite,
@@ -35,6 +36,7 @@ class RestaurantResource extends JsonResource
             'heure_fermeture'=>$this->heure_fermeture,
             'document_url'=>$this->document_url,
             'capacite'=>$this->capacite,
+            'status'=>$this->status,
             'user'=> new UserResource($this->user),
             'abonnement'=> new AbonnementResource($this->abonnement),
         ];

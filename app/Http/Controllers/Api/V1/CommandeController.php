@@ -41,8 +41,9 @@ class CommandeController extends ApiController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCommandeRequest $request, Commande $commande)
+    public function update(UpdateCommandeRequest $request, $id)
     {
+        $commande=Commande::findOrFail($id);
         $commande->update($request->all());
 
         return new CommandeResource($commande);

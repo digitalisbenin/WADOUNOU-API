@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Commande;
 
-
+use App\Http\Resources\LigneCommande\LigneCommandeResource;
 use App\Http\Resources\Repas\RepasResource;
 use App\Http\Resources\Restaurant\RestaurantResource;
 use App\Http\Resources\User\UserResource;
@@ -29,7 +29,6 @@ class CommandeResource extends JsonResource
       return [
         'id' => $this->id,
         'name'=>$this->name,
-        'repas'=>new RepasResource($this->repas),
         'user'=>new UserResource($this->user),
         'restaurant'=> new RestaurantResource($this->restaurant),
         'description'=>$this->description,
@@ -37,7 +36,7 @@ class CommandeResource extends JsonResource
         'contact'=>$this->contact,
         'adresse'=>$this->adresse,
         'montant'=>$this->montant,
-        'quantite'=>$this->quantite,
+
 
 
     ];

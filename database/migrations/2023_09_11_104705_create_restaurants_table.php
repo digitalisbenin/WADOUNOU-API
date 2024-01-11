@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('abonnement_id')->nullable();
             $table->string('name');
             $table->string('adresse');
+            $table->string('ville');
             $table->string('phone');
             $table->string('description');
             $table->string('specilite');
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->string('document_url')->nullable();
             $table->string('capacite');
             $table->string('image_url');
+            $table->enum('status', ['disponible', 'occuper'])->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

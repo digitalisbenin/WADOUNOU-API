@@ -12,7 +12,7 @@ class Restaurant extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'description' ,'adresse','phone','image_url','user_id','abonnement_id','specilite','heure_douverture','heure_fermeture','document_url','capacite'];
+    protected $fillable = ['name', 'description' ,'adresse','ville','phone','image_url','user_id','abonnement_id','specilite','heure_douverture','heure_fermeture','document_url','capacite','status'];
 
     public function user()
     {

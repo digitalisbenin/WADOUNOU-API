@@ -13,27 +13,22 @@ return new class extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('repas_id');
             $table->uuid('user_id')->nullable();
             $table->uuid('restaurant_id')->nullable();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('contact');
-            $table->string('adresse');
-            $table->decimal('montant');
-            $table->decimal('quantite');
+            $table->string('contact')->nullable();
+            $table->string('adresse')->nullable();
+            $table->decimal('montant')->nullable();
             $table->enum('status', ['En attente', 'livrer', 'non livrer','Affecter']);
             $table->timestamps();
 
-            $table->foreign('repas_id')
-            ->references('id')
-            ->on('repas')
-            ->onDelete('cascade');
                 
             $table->foreign('restaurant_id')
             ->references('id')
             ->on('restaurants')
             ->onDelete('cascade');
+
             $table->foreign('user_id')
             ->references('id')
             ->on('users')

@@ -17,11 +17,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('commande_id');
             $table->string('transationId');
-            $table->string('card_brand')->nullable();
-            $table->string('last4')->nullable();
-            $table->string('exp_month')->nullable();
-            $table->year('exp_year')->nullable();
-            $table->string('phone_number')->nullable();
             $table->timestamps();
 
             $table->foreign('commande_id')

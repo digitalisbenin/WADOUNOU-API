@@ -12,12 +12,9 @@ class Commande extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['name', 'repas_id' ,'user_id','restaurant_id', 'status','description','contact','adresse','montant','quantite','status'];
+    protected $fillable = ['name' ,'user_id','restaurant_id', 'status','description','contact','adresse','montant','status'];
 
-    public function repas()
-        {
-            return $this->belongsTo(Repas::class);
-        }
+    
 
         public function user()
         {
@@ -32,4 +29,14 @@ class Commande extends Model
         {
             return $this->hasMany(Livraison::class);
         }
+        public function paymentmetod()
+        {
+            return $this->hasMany(PaymentMethod::class);
+        }
+        
+        public function lignecommande()
+        {
+            return $this->hasMany(Ligne_commande::class);
+        }
+        
 }

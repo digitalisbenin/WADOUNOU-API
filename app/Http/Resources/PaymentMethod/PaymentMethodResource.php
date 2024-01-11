@@ -20,12 +20,9 @@ class PaymentMethodResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'card_brand' => $this->card_brand,
-            'last4' => $this->last4,
-            'transationId' => $this->type,
-            'exp_month' => $this->exp_month,
-            'exp_year' => $this->exp_year,
-            'phone_number' => $this->phone_number,
+
+            'transationId' => $this->transationId,
+            
             'commande'=> new CommandeResource($this->commande),
             
         ];

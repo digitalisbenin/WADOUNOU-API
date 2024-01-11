@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\ClientController;
 use App\Http\Controllers\Api\V1\CommandeController;
 use App\Http\Controllers\Api\V1\CommentaireController;
+use App\Http\Controllers\Api\V1\LigneCommandeController;
 use App\Http\Controllers\Api\V1\LivraisonController;
 use App\Http\Controllers\Api\V1\LivreurController;
 use App\Http\Controllers\Api\V1\RepasController;
@@ -58,7 +59,7 @@ Route::delete('/abonnements/{id}', [AbonnementController::class, 'destroy']);
 Route::get('/commandes', [CommandeController::class, 'index']);
 Route::get('/commandes/{id}', [CommandeController::class, 'show']);
 Route::post('/commandes', [CommandeController::class, 'store']);
-Route::put('/commandes/{id}', [CommandeController::class, 'update']);
+Route::post('/commandes/{id}', [CommandeController::class, 'update']);
 Route::delete('/commandes/{id}', [CommandeController::class, 'destroy']);
 Route::get('/commentaires', [CommentaireController::class, 'index']);
 Route::get('/commentaires/{id}', [CommentaireController::class, 'show']);
@@ -110,6 +111,9 @@ Route::get('/menus',[MenuController::class, 'index']);
 Route::get('/menus/{id}',[MenuController::class, 'show']);
 Route::get('/categorys',[CategoryController::class, 'index']);
 Route::get('/categorys/{id}', [CategoryController::class, 'show']);
+Route::get('/lignecommandes',[LigneCommandeController::class, 'index']);
+Route::post('/lignecommandes',[LigneCommandeController::class, 'store']);
+Route::delete('/lignecommandes/{id}', [LigneCommandeController::class, 'destroy']);
 
 
 

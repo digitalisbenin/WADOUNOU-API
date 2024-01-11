@@ -27,6 +27,7 @@ class UpdateRestaurantRequest extends FormRequest
             'name' => 'required',
             'phone' => 'required',
             'addrese' => 'required',
+            'ville' => 'required',
             'description' => 'required',
             'image_url' => 'required',
         ];

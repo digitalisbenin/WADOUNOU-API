@@ -26,10 +26,12 @@ class StoreRestaurantRequest extends FormRequest
         return [
             'name' => 'required',
             'phone' => 'required',
+            'ville' => 'required',
             'adresse' => 'required',
             'description' => 'required',
             'image_url' => 'required',
             'specilite' => 'required',
+            'status' => 'nullable',
             'heure_douverture' => 'required',
             'heure_fermeture' => 'required',
             'document_url' => 'nullable',

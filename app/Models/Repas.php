@@ -13,11 +13,13 @@ class Repas extends Model
 {
     use HasFactory, Uuid;
 
+    protected $keyType = 'string';
+
     protected $fillable = ['name', 'description' ,'prix','like','image_url','categoris_id','user_id'];
 
     
 
-
+   
             public function users()
             {
                 return $this->belongsTo(User::class);
@@ -28,10 +30,10 @@ class Repas extends Model
                 return $this->belongsTo(Category::class);
             }
 
-        public function commande()
-        {
-            return $this->hasMany(Commande::class);
-        }
+            public function lignecommande()
+            {
+                return $this->hasMany(Ligne_commande::class);
+            }
 
         public function think()
         {

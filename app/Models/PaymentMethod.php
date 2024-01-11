@@ -11,11 +11,10 @@ class PaymentMethod extends Model
 {
     use HasFactory, Uuid;
 
-    protected $fillable = ['transationId', 'card_brand', 'last4', 'exp_month', 'exp_year',
-    'phone_number', 'commande_id'];
+    protected $fillable = ['transationId','commande_id'];
 
-    public function user()
+    public function commande()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Commande::class);
     }
 }
