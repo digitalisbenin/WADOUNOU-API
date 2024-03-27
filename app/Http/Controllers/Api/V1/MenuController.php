@@ -8,6 +8,8 @@ use App\Http\Requests\Menu\UpdateMenuRequest;
 use App\Http\Resources\Menu\MenuCollection;
 use App\Http\Resources\Menu\MenuResource;
 use App\Models\Menu;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
 use Illuminate\Http\Request;
 use mysqli;
 
@@ -18,10 +20,20 @@ class MenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return new MenuCollection(Menu::all());
-    }
+    //public function index()
+    //{
+       // return new MenuCollection(Menu::all());
+    //}
+
+    public function index(Request $request)
+{
+    $menus = QueryBuilder::for(Menu::publish())
+        ->allowedFilters(
+            AllowedFilter::exact('restaurant_id'),
+        );
+
+    return new MenuCollection($menus->latest()->get());
+}
 
     /**
      * Store a newly created resource in storage.

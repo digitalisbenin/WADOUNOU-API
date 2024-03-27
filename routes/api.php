@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\V1\ThinksController;
 use App\Http\Controllers\Api\V1\MediaController;
 use App\Http\Controllers\Api\V1\MenuController;
 use App\Http\Controllers\Api\V1\PaymentMethodController;
+use App\Http\Controllers\Api\V1\TemoinageController;
 use App\Http\Resources\Client\ClientCollection;
 use Illuminate\Http\Request;
 
@@ -51,6 +52,12 @@ Route::middleware('json-response')->prefix('auth')->group(function () {
         ->middleware('signed');
 });
 
+
+Route::get('/temoinanges', [TemoinageController::class, 'index']);
+Route::get('/temoinanges/{id}', [TemoinageController::class, 'show']);
+Route::post('/temoinanges', [TemoinageController::class, 'store']);
+Route::put('/temoinanges/{id}', [TemoinageController::class, 'update']);
+Route::delete('/temoinanges/{id}', [TemoinageController::class, 'destroy']);
 Route::get('/abonnements', [AbonnementController::class, 'index']);
 Route::get('/abonnements/{id}', [AbonnementController::class, 'show']);
 Route::post('/abonnements', [AbonnementController::class, 'store']);

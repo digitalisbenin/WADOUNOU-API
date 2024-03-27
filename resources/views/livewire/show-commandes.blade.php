@@ -41,9 +41,7 @@
                 <th scope="col" class="px-6 py-3">
                     Contact
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Nom repas
-                </th>
+                
                 <th scope="col" class="px-6 py-3">
                     Action
                 </th>
@@ -65,10 +63,6 @@
                     </td>
                     <td class="px-6 py-4">
                         {{ $commande->contact }}
-                    </td>
-                   
-                    <td class="px-6 py-4">
-                        {{ $commande->repas->name }}
                     </td>
                     
                     <td class="flex items-center px-6 py-4 space-x-3">

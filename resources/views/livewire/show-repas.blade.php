@@ -32,9 +32,6 @@
                     Type
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Nom restaurant
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
@@ -55,9 +52,7 @@
                 <td class="px-6 py-4">
                     {{ $repase->type }}
                 </td>
-                <td class="px-6 py-4">
-                    {{ $repase->restaurant->name }}
-                </td>
+                
 
                 <td class="flex items-center px-6 py-4 space-x-3">
                     <a href="#" wire:click="edit({{ $repase }})" wire:loading.attr="disabled" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Modifier</a>
